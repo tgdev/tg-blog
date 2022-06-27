@@ -23,11 +23,9 @@ const BlogPostTemplate = ({ data, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <PageHeader
-          title={post.frontmatter.title}
-          text={post.frontmatter.date}
-          isBlogArticle={true}
-        />
+        <PageHeader title={post.frontmatter.title} isBlogArticle={true}>
+          <p>{post.frontmatter.date}</p>
+        </PageHeader>
         <section itemProp="articleBody">
           <div
             className="content-wrapper"
@@ -43,30 +41,16 @@ const BlogPostTemplate = ({ data, location }) => {
       </article>
       <ContentBlock>
         <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
+          {previous && (
+            <Link to={previous.fields.slug} rel="prev">
+              ← {previous.frontmatter.title}
+            </Link>
+          )}
+          {next && (
+            <Link to={next.fields.slug} rel="next">
+              {next.frontmatter.title} →
+            </Link>
+          )}
         </nav>
       </ContentBlock>
     </Layout>
