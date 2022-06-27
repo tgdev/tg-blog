@@ -1,9 +1,9 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from "../components/Bio"
-import Layout from "../components/MainLayout"
+import Layout from "../layouts/MainLayout"
 import Seo from "../components/Seo"
+import Bio from "../components/Bio"
 import { BlogPost, PageDataProps } from "../types"
 
 interface Props extends PageDataProps {

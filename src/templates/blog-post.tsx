@@ -2,10 +2,10 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/Bio"
-import Layout from "../components/MainLayout"
+import Layout from "../layouts/MainLayout"
+import { ContentBlock } from "../layouts/ContentBlock"
 import Seo from "../components/Seo"
 import { PageHeader } from "../components/PageHeader"
-import { ContentBlock } from "../components/ContentBlock"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark

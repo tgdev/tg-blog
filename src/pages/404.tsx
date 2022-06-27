@@ -1,7 +1,7 @@
-import * as React from "react"
+import React from "react"
 import { graphql, PageProps } from "gatsby"
 
-import Layout from "../components/MainLayout"
+import Layout from "../layouts/MainLayout"
 import Seo from "../components/Seo"
 import { PageDataProps } from "../types"
 
