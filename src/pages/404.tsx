@@ -4,6 +4,7 @@ import { graphql, PageProps } from "gatsby"
 import Layout from "../layouts/MainLayout"
 import Seo from "../components/Seo"
 import { PageDataProps } from "../types"
+import { PageHeader } from "../components/PageHeader"
 
 const NotFoundPage: React.FC<PageProps<PageDataProps>> = ({
   data,
@@ -14,8 +15,12 @@ const NotFoundPage: React.FC<PageProps<PageDataProps>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <PageHeader title="Oh no!">
+        <p>
+          Looks like climate change has devasted the page you were trying to
+          view which doesn&#39;t exist... the sadness.
+        </p>
+      </PageHeader>
     </Layout>
   )
 }
