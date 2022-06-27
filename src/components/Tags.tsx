@@ -1,5 +1,5 @@
 import React from "react"
-
+import kebabcase from "lodash.kebabcase"
 interface Props {
   tags: string[]
 }
@@ -8,7 +8,7 @@ export const Tags = ({ tags }: Props) => (
   <div className="tags">
     {tags &&
       tags.map(tag => (
-        <a href={`/tags/${tag}`} className="tag">
+        <a href={`/tags/${kebabcase(tag)}`} className="tag">
           #{tag}
         </a>
       ))}

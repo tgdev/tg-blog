@@ -1,5 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
+import kebabcase from "lodash.kebabcase"
 import { Tags } from "./Tags"
 
 export const BlogPosts = () => {
@@ -51,7 +52,8 @@ export const BlogPosts = () => {
                 </h2>
                 <div className="post-list-item-meta">
                   <span>
-                    {date} | <a href={`/topics/${category}`}>{category}</a>
+                    {date} |{" "}
+                    <a href={`/topics/${kebabcase(category)}`}>{category}</a>
                   </span>
                   <Tags tags={tags} />
                 </div>
