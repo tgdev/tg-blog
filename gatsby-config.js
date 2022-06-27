@@ -3,7 +3,7 @@ module.exports = {
     title: `TG Eco Blog`,
     author: {
       name: `Tom Gillard`,
-      summary: `A lefty introvert interested in doing his bit for the planet`,
+      summary: `a lefty introvert interested in doing his bit for the planet`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     url: `https://tg-eco-blog.netlifyapp.io`,
