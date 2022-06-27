@@ -240,7 +240,7 @@ a:focus {
 
 /* Custom classes */
 .global-header {
-  margin-bottom: var(--spacing-4);
+  padding: var(--spacing-4) 0;
 }
 
 .global-footer {
