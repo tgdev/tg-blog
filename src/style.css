@@ -267,6 +267,7 @@ a:focus {
 }
 
 .site-footer {
+  font-family: var(--font-heading);
   text-align: center;
 }
 
