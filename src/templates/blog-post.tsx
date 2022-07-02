@@ -1,13 +1,38 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Bio from "../components/Bio"
 import Layout from "../layouts/MainLayout"
 import { ContentBlock } from "../layouts/ContentBlock"
 import Seo from "../components/Seo"
 import { PageHeader } from "../components/PageHeader"
+import { TagsList } from "../components/TagsList"
+import { NavItem, Tags } from "../types"
 
-const BlogPostTemplate = ({ data, location }) => {
+type Data = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+  markdownRemark: {
+    id: string
+    timeToRead: number
+    excerpt: string
+    html: any
+    frontmatter: {
+      title: string
+      date: string
+      description: string
+      category: string
+      tags: Tags
+    }
+  }
+  previous: NavItem
+  next: NavItem
+}
+
+const BlogPostTemplate = ({ data, location }: PageProps<Data>) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -27,6 +52,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <p>{post.frontmatter.date}</p>
         </PageHeader>
         <section itemProp="articleBody">
+          <TagsList tags={post.frontmatter.tags} />
           <div
             className="content-wrapper"
             dangerouslySetInnerHTML={{ __html: post.html }}
@@ -72,6 +98,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(id: { eq: $id }) {
       id
+      timeToRead
       excerpt(pruneLength: 160)
       html
       frontmatter {
