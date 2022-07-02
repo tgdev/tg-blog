@@ -9,8 +9,19 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+type Data = {
+  site: {
+    siteMetadata: {
+      author: {
+        name: string
+        summary?: string
+      }
+    }
+  }
+}
+
 const Bio = () => {
-  const data = useStaticQuery(graphql`
+  const data: Data = useStaticQuery(graphql`
     query BioQuery {
       site {
         siteMetadata {
@@ -24,7 +35,7 @@ const Bio = () => {
   `)
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author
+  const { author } = data.site.siteMetadata
 
   return (
     <div className="bio">
@@ -32,7 +43,7 @@ const Bio = () => {
         className="bio-avatar"
         layout="fixed"
         formats={["auto", "webp", "avif"]}
-        src="../images/profile-pic.png"
+        src="../images/profile-pic.jpg"
         width={50}
         height={50}
         quality={95}
@@ -40,7 +51,7 @@ const Bio = () => {
       />
       {author?.name && (
         <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
+          I'm <strong>{author.name}</strong>, {author.summary}
         </p>
       )}
     </div>
