@@ -4,7 +4,7 @@ interface Props {
   tags: string[]
 }
 
-export const Tags = ({ tags }: Props) => (
+export const TagsList = ({ tags }: Props) => (
   <div className="tags">
     {tags &&
       tags.map(tag => (

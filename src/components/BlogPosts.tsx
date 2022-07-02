@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import kebabcase from "lodash.kebabcase"
-import { Tags } from "./Tags"
+import { TagsList } from "./TagsList"
 
 export const BlogPosts = () => {
   const data = useStaticQuery(graphql`
@@ -55,7 +55,7 @@ export const BlogPosts = () => {
                     {date} |{" "}
                     <a href={`/topics/${kebabcase(category)}`}>{category}</a>
                   </span>
-                  <Tags tags={tags} />
+                  <TagsList tags={tags} />
                 </div>
               </header>
               <section>
