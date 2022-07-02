@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tgdev/tg-eco-blog
+  repo: tgdev/tg-blog
   branch: main
 
 media_folder: "static/img"
