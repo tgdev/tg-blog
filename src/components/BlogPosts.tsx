@@ -3,11 +3,31 @@ import React from "react"
 import kebabcase from "lodash.kebabcase"
 import { TagsList } from "./TagsList"
 
+type Data = {
+  allMarkdownRemark: {
+    nodes: {
+      timeToRead: number
+      excerpt: string
+      frontmatter: {
+        title: string
+        date: string
+        description: string
+        category: string
+        tags: string[]
+      }
+      fields: {
+        slug: string
+      }
+    }[]
+  }
+}
+
 export const BlogPosts = () => {
-  const data = useStaticQuery(graphql`
+  const data: Data = useStaticQuery(graphql`
     query BlogPostQuery {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         nodes {
+          timeToRead
           excerpt
           fields {
             slug
@@ -52,7 +72,7 @@ export const BlogPosts = () => {
                 </h2>
                 <div className="post-list-item-meta">
                   <span>
-                    {date} |{" "}
+                    {date} | {post.timeToRead} min |{" "}
                     <a href={`/topics/${kebabcase(category)}`}>{category}</a>
                   </span>
                   <TagsList tags={tags} />
