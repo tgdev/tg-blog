@@ -50,17 +50,17 @@ const BlogPostTemplate = ({ data, location }: PageProps<Data>) => {
         itemType="http://schema.org/Article"
       >
         <PageHeader title={post.frontmatter.title} isBlogArticle={true}>
-          <p>
-            <PostMeta
-              date={post.frontmatter.date}
-              category={post.frontmatter.category}
-              timeToRead={post.timeToRead}
-              Component="p"
-            />
-          </p>
+          <PostMeta
+            date={post.frontmatter.date}
+            category={post.frontmatter.category}
+            timeToRead={post.timeToRead}
+            Component="p"
+          />
+          <small>
+            <TagsList tags={post.frontmatter.tags} />
+          </small>
         </PageHeader>
         <section itemProp="articleBody">
-          <TagsList tags={post.frontmatter.tags} />
           <div
             className="content-wrapper"
             dangerouslySetInnerHTML={{ __html: post.html }}
@@ -113,6 +113,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        category
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

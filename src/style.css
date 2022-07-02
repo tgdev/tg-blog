@@ -266,8 +266,10 @@ a:focus {
 }
 
 .page-header p {
+  margin-bottom: var(--spacing-3);
   font-size: var(--fontSize-2);
   font-family: var(--font-heading);
+
 }
 
 .main-heading {
