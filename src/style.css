@@ -239,11 +239,34 @@ a:focus {
 }
 
 /* Custom classes */
-.global-header {
+.site-header {
   padding: var(--spacing-4) 0;
 }
 
-.global-footer {
+.site-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header-title {
+  font-family: var(--font-heading);
+  font-size: var(--fontSize-2);
+  font-weight: var(--fontWeight-bold);
+  text-decoration: none;
+}
+
+.site-header-nav {}
+
+.site-header-nav-item {
+  padding: var(--spacing-2);
+  font-family: var(--font-heading);
+  font-size: var(--fontSize-1);
+  font-weight: var(--fontWeight-bold);
+  text-decoration: none;
+}
+
+.site-footer {
   text-align: center;
 }
 
@@ -308,13 +331,6 @@ a:focus {
   display: flex;
   justify-content: space-between;
   font-size: var(--fontSize-0);
-}
-
-.header-link-home {
-  font-weight: var(--fontWeight-bold);
-  font-family: var(--font-heading);
-  text-decoration: none;
-  font-size: var(--fontSize-2);
 }
 
 .bio {

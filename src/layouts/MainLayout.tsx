@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { ContentBlock } from "./ContentBlock"
+import { SiteHeader } from "../components/SiteHeader"
 
 interface Props {
   location: any
@@ -11,19 +12,12 @@ interface Props {
 const MainLayout = ({ location, title, children }: Props) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  const header = (
-    <Link className="header-link-home" to="/">
-      {title}
-    </Link>
-  )
 
   return (
     <div data-is-root-path={isRootPath}>
-      <header className="global-header">
-        <ContentBlock>{header}</ContentBlock>
-      </header>
+      <SiteHeader title={title} />
       <main>{children}</main>
-      <footer className="global-footer">
+      <footer className="site-footer">
         <ContentBlock>
           <small>
             © {new Date().getFullYear()} Tom Gillard | Built with{" "}
