@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `TG Blog`,
     author: {
-      name: `Tom Gillard`,
-      summary: `a lefty introvert interested in doing his bit for the planet`,
+      name: `Tom`,
+      summary: `a lefty introvert from Melbourne interested in doing his bit for the planet`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    url: `https://tg-eco-blog.netlifyapp.io`,
+    description: `A blog documenting the ideas of one man as he attempts to put them into practise and share his journey towards living a more sustainable life.`,
+    url: `https://tg-blog.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -102,7 +102,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            title: "TG Blog RSS Feed",
           },
         ],
       },
@@ -110,8 +110,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `TG Blog`,
+        short_name: `TG Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
