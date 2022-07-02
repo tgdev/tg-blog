@@ -1,8 +1,9 @@
 import React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import Layout from "../layouts/MainLayout"
 import Seo from "../components/Seo"
+import Bio from "../components/Bio"
 import { BlogPost, PageDataProps } from "../types"
 import { ContentBlock } from "../layouts/ContentBlock"
 import { PageHeader } from "../components/PageHeader"
@@ -20,8 +21,8 @@ const BlogIndex: React.FC<PageProps<Props>> = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <PageHeader title="All posts...">
-        <p>from {data.site.siteMetadata.author?.summary}</p>
+      <PageHeader title="All posts">
+        <Bio />
       </PageHeader>
       <ContentBlock>
         <BlogPosts />

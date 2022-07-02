@@ -36,13 +36,7 @@ export const BlogPosts = () => {
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
-    return (
-      <p>
-        No blog posts found. Add markdown posts to "content/blog" (or the
-        directory you specified for the "gatsby-source-filesystem" plugin in
-        gatsby-config.js).
-      </p>
-    )
+    return <p>No blog posts found.</p>
   }
 
   return (
@@ -66,7 +60,7 @@ export const BlogPosts = () => {
                     category={category}
                     timeToRead={post.timeToRead}
                   />
-                  <TagsList tags={post.frontmatter.tags ?? []} />
+                  <TagsList tags={tags ?? []} />
                 </div>
               </header>
               <section>
