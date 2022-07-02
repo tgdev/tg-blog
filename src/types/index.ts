@@ -1,4 +1,16 @@
+export type NavItem = {
+  fields: {
+    slug: string
+  }
+  frontmatter: {
+    title: string
+  }
+}
+
+export type Tags = string[]
+
 export type BlogPost = {
+  timeToRead: number
   excerpt: string
   fields: {
     slug: string
@@ -8,7 +20,7 @@ export type BlogPost = {
     title: string
     description: string
     category: string
-    tags?: string[]
+    tags?: Tags
   }
 }
 
