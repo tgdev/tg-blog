@@ -1,24 +1,14 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
-import kebabcase from "lodash.kebabcase"
+
 import { TagsList } from "./TagsList"
+import { PostMeta } from "./PostMeta"
+
+import { BlogPost } from "../types"
 
 type Data = {
   allMarkdownRemark: {
-    nodes: {
-      timeToRead: number
-      excerpt: string
-      frontmatter: {
-        title: string
-        date: string
-        description: string
-        category: string
-        tags: string[]
-      }
-      fields: {
-        slug: string
-      }
-    }[]
+    nodes: BlogPost[]
   }
 }
 
@@ -71,11 +61,12 @@ export const BlogPosts = () => {
                   </Link>
                 </h2>
                 <div className="post-list-item-meta">
-                  <span>
-                    {date} | {post.timeToRead} min |{" "}
-                    <a href={`/topics/${kebabcase(category)}`}>{category}</a>
-                  </span>
-                  <TagsList tags={tags} />
+                  <PostMeta
+                    date={date}
+                    category={category}
+                    timeToRead={post.timeToRead}
+                  />
+                  <TagsList tags={post.frontmatter.tags ?? []} />
                 </div>
               </header>
               <section>

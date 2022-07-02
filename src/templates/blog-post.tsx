@@ -8,6 +8,7 @@ import Seo from "../components/Seo"
 import { PageHeader } from "../components/PageHeader"
 import { TagsList } from "../components/TagsList"
 import { NavItem, Tags } from "../types"
+import { PostMeta } from "../components/PostMeta"
 
 type Data = {
   site: {
@@ -49,7 +50,14 @@ const BlogPostTemplate = ({ data, location }: PageProps<Data>) => {
         itemType="http://schema.org/Article"
       >
         <PageHeader title={post.frontmatter.title} isBlogArticle={true}>
-          <p>{post.frontmatter.date}</p>
+          <p>
+            <PostMeta
+              date={post.frontmatter.date}
+              category={post.frontmatter.category}
+              timeToRead={post.timeToRead}
+              Component="p"
+            />
+          </p>
         </PageHeader>
         <section itemProp="articleBody">
           <TagsList tags={post.frontmatter.tags} />
