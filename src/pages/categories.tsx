@@ -30,7 +30,7 @@ const CategoriesPage: React.FC<PageProps<Props>> = ({ data }) => {
       <ContentBlock>
         <nav className="link-list">
           {categories.map(({ fieldValue, totalCount }) => (
-            <Link key={fieldValue} to={`/categories/${kebabCase(fieldValue)}/`}>
+            <Link key={fieldValue} to={`/category/${kebabCase(fieldValue)}/`}>
               {fieldValue} ({totalCount})
             </Link>
           ))}

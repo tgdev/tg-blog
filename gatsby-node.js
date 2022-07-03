@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define templates for pages
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
+  const categoryTemplate = path.resolve("src/templates/category.tsx")
   const tagTemplate = path.resolve("src/templates/tag.tsx")
 
   // Get all markdown blog posts sorted by date
@@ -23,6 +24,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
             }
             frontmatter {
+              category
               tags
             }
           }
@@ -41,11 +43,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.postsRemark.edges
+  // Make category pages
+  const createCategoryPages = (posts, createPage) => {
+    const categoriesFound = []
+
+    posts.forEach(({ node }) => {
+      const { category } = node.frontmatter
+      if (categoriesFound.indexOf(category) === -1) {
+        categoriesFound.push(category)
+      }
+    })
+
+
+    categoriesFound.forEach(cat => {
+      createPage({
+        path: `/category/${kebabcase(cat)}/`,
+        component: categoryTemplate,
+        context: {
+          category: cat,
+        },
+      })
+    })
+  }
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
+  const posts = result.data.postsRemark.edges
 
   if (posts.length > 0) {
     posts.forEach(({ node }, index) => {
@@ -62,6 +86,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         },
       })
     })
+
+    createCategoryPages(posts, createPage)
   }
 
   // Make tag pages
@@ -120,6 +146,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      category: String
       tags: [String]
     }
 
