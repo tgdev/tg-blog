@@ -7,6 +7,7 @@ type NavItem = { name: string; path: string }
 
 const navItems: NavItem[] = [
   { name: "Posts", path: "/" },
+  { name: "Topics", path: "/categories" },
   { name: "About", path: "/about" },
 ]
 
