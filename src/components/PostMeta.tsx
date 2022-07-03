@@ -16,6 +16,6 @@ export const PostMeta = ({
 }: Props) => (
   <Component>
     {date} | {timeToRead} min |{" "}
-    <a href={`/topics/${kebabcase(category)}`}>{category}</a>
+    <a href={`/category/${kebabcase(category)}`}>{category}</a>
   </Component>
 )
