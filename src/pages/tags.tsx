@@ -6,9 +6,8 @@ import { ContentBlock } from "../layouts/ContentBlock"
 import { PageHeader } from "../components/PageHeader"
 import Layout from "../layouts/MainLayout"
 import Seo from "../components/Seo"
-import { PageDataProps } from "../types"
 
-interface Props extends PageDataProps {
+interface Props {
   allMarkdownRemark: {
     group: [
       {
@@ -19,14 +18,13 @@ interface Props extends PageDataProps {
   }
 }
 
-const TagsPage: React.FC<PageProps<Props>> = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+const TagsPage: React.FC<PageProps<Props>> = ({ data }) => {
   const pageTitle = "Tags"
 
   const tags = data.allMarkdownRemark.group
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <Seo title={pageTitle} />
       <PageHeader title={pageTitle} />
       <ContentBlock>
@@ -48,11 +46,6 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue

@@ -1,4 +1,4 @@
-export type NavItem = {
+export type PostNavItem = {
   fields: {
     slug: string
   }
@@ -21,18 +21,5 @@ export type BlogPost = {
     description: string
     category: string
     tags?: Tags
-  }
-}
-
-export interface PageDataProps {
-  site: {
-    siteMetadata: {
-      author?: {
-        name: string
-        summary?: string
-      }
-      title: string
-      description?: string
-    }
   }
 }

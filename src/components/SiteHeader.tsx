@@ -1,33 +1,50 @@
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 
 import { ContentBlock } from "../layouts/ContentBlock"
 
-interface Props {
-  title: string
-}
+type NavItem = { name: string; path: string }
 
-const navItems = [
+const navItems: NavItem[] = [
   { name: "Posts", path: "/" },
   { name: "About", path: "/about" },
 ]
 
-export const SiteHeader = ({ title }: Props) => (
-  <header className="site-header">
-    <ContentBlock>
-      <div className="site-header-content">
-        <Link className="site-header-title" to="/">
-          {title}
-        </Link>
+type Data = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+}
 
-        <nav className="site-header-nav">
-          {navItems.map(({ name, path }) => (
-            <Link to={path} className="site-header-nav-item">
-              {name}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </ContentBlock>
-  </header>
-)
+export const SiteHeader = () => {
+  const data: Data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+  return (
+    <header className="site-header">
+      <ContentBlock>
+        <div className="site-header-content">
+          <Link className="site-header-title" to="/">
+            {data.site.siteMetadata.title}
+          </Link>
+
+          <nav className="site-header-nav">
+            {navItems.map(({ name, path }) => (
+              <Link to={path} className="site-header-nav-item">
+                {name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </ContentBlock>
+    </header>
+  )
+}

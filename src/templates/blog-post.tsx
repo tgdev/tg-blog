@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 
 import Bio from "../components/Bio"
@@ -7,15 +7,10 @@ import { ContentBlock } from "../layouts/ContentBlock"
 import Seo from "../components/Seo"
 import { PageHeader } from "../components/PageHeader"
 import { TagsList } from "../components/TagsList"
-import { NavItem, Tags } from "../types"
+import { PostNavItem, Tags } from "../types"
 import { PostMeta } from "../components/PostMeta"
 
 type Data = {
-  site: {
-    siteMetadata: {
-      title: string
-    }
-  }
   markdownRemark: {
     id: string
     timeToRead: number
@@ -29,17 +24,16 @@ type Data = {
       tags: Tags
     }
   }
-  previous: NavItem
-  next: NavItem
+  previous: PostNavItem
+  next: PostNavItem
 }
 
-const BlogPostTemplate = ({ data, location }: PageProps<Data>) => {
+const BlogPostTemplate = ({ data }: PageProps<Data>) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -99,11 +93,6 @@ export const pageQuery = graphql`
     $previousPostId: String
     $nextPostId: String
   ) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     markdownRemark(id: { eq: $id }) {
       id
       timeToRead
