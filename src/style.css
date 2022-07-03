@@ -240,6 +240,13 @@ a:focus {
 }
 
 /* Custom classes */
+.site-wrapper {
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-height: 100vh;
+}
+
 .site-header {
   padding: var(--spacing-4) 0;
 }
@@ -267,6 +274,10 @@ a:focus {
   text-decoration: none;
 }
 
+.site-content {
+  flex-grow: 1;
+}
+
 .site-footer {
   font-family: var(--font-heading);
   text-align: center;
@@ -280,7 +291,7 @@ a:focus {
 
 .page-header {
   padding: var(--spacing-16);
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
   text-align: center;
   background: rgb(122, 208, 255);
   background: linear-gradient(230deg, rgba(122, 208, 255, 1) 0%, rgba(181, 255, 99, 1) 100%);
