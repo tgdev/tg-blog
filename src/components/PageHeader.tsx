@@ -1,4 +1,5 @@
 import React from "react"
+import { ContentBlock } from "../layouts/ContentBlock"
 
 interface Props {
   title: string
@@ -12,7 +13,9 @@ export const PageHeader = ({
   isBlogArticle = false,
 }: Props) => (
   <header className="page-header">
-    <h2 itemProp={isBlogArticle ? "headline" : undefined}>{title}</h2>
-    {children ? <div className="page-header-meta">{children}</div> : null}
+    <ContentBlock>
+      <h2 itemProp={isBlogArticle ? "headline" : undefined}>{title}</h2>
+      {children ? <div className="page-header-meta">{children}</div> : null}
+    </ContentBlock>
   </header>
 )
