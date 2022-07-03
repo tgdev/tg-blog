@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React from "react"
 
 import { TagsList } from "./TagsList"
@@ -6,35 +6,11 @@ import { PostMeta } from "./PostMeta"
 
 import { BlogPost } from "../types"
 
-type Data = {
-  allMarkdownRemark: {
-    nodes: BlogPost[]
-  }
+interface Props {
+  posts: BlogPost[]
 }
 
-export const BlogPosts = () => {
-  const data: Data = useStaticQuery(graphql`
-    query BlogPostQuery {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-        nodes {
-          timeToRead
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            category
-            tags
-          }
-        }
-      }
-    }
-  `)
-  const posts = data.allMarkdownRemark.nodes
-
+export const BlogPosts = ({ posts }: Props) => {
   if (posts.length === 0) {
     return <p>No blog posts found.</p>
   }
