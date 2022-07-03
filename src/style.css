@@ -324,6 +324,17 @@ min-height: 100vh;
   color: var(--color-text-inverse);
 }
 
+.link-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-8);
+}
+
+.link-list a {
+  display: inline-block;
+  margin-bottom: var(--spacing-4);
+}
+
 .main-heading {
   font-size: var(--fontSize-7);
   margin: 0;
@@ -365,7 +376,7 @@ min-height: 100vh;
 .bio {
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-8);
 }
 
 .bio p {

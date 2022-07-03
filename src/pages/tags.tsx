@@ -28,15 +28,16 @@ const TagsPage: React.FC<PageProps<Props>> = ({ data }) => {
       <Seo title={pageTitle} />
       <PageHeader title={pageTitle} />
       <ContentBlock>
-        <ul>
+        <nav className="link-list">
           {tags.map(tag => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                {tag.fieldValue} ({tag.totalCount})
-              </Link>
-            </li>
+            <Link
+              key={tag.fieldValue}
+              to={`/tags/${kebabCase(tag.fieldValue)}/`}
+            >
+              {tag.fieldValue} ({tag.totalCount})
+            </Link>
           ))}
-        </ul>
+        </nav>
       </ContentBlock>
     </Layout>
   )
