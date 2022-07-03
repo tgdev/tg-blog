@@ -10,6 +10,11 @@ interface Props {
     tag: string
   }
   data: {
+    site: {
+      siteMetadata: {
+        title: string
+      }
+    }
     allMarkdownRemark: {
       totalCount: number
       edges: [
@@ -28,17 +33,17 @@ interface Props {
   }
 }
 
-const Tags = ({ pageContext, data }: Props) => {
+const TagPageTemplate = ({ pageContext, data }: Props) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
+  const pageHeaderTitle = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
 
   return (
-    <Layout location={location} title={""}>
+    <Layout location={location} title={data.site.siteMetadata.title}>
       <Seo title={""} />
-      <PageHeader title={tagHeader} />
+      <PageHeader title={pageHeaderTitle} />
       <ContentBlock>
         {edges.map(({ node }) => {
           const { slug } = node.fields
@@ -49,18 +54,25 @@ const Tags = ({ pageContext, data }: Props) => {
             </Link>
           )
         })}
-        <div>
-          <Link to="/tags">All tags</Link>
+        <div className="page-cta">
+          <Link to="/tags" className="primary-button">
+            All tags
+          </Link>
         </div>
       </ContentBlock>
     </Layout>
   )
 }
 
-export default Tags
+export default TagPageTemplate
 
 export const pageQuery = graphql`
   query ($tag: String) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

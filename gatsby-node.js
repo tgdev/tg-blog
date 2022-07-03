@@ -5,9 +5,9 @@ const kebabcase = require("lodash.kebabcase")
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Define a template for blog post
+  // Define templates for pages
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
-  const tagTemplate = path.resolve("src/templates/tags.tsx")
+  const tagTemplate = path.resolve("src/templates/tag.tsx")
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(`
@@ -66,12 +66,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const tags = result.data.tagsGroup.group
   // Make tag pages
-  tags.forEach(tag => {
+  tags.forEach(({ fieldValue }) => {
     createPage({
-      path: `/tags/${kebabcase(tag.fieldValue)}/`,
+      path: `/tags/${kebabcase(fieldValue)}/`,
       component: tagTemplate,
       context: {
-        tag: tag.fieldValue,
+        tag: fieldValue,
       },
     })
   })
@@ -120,6 +120,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      tags: [String]
     }
 
     type Fields {

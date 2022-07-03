@@ -60,6 +60,7 @@
   --color-heading: #1a202c;
   --color-heading-black: black;
   --color-accent: #d1dce5;
+  --color-text-inverse: #fff;
 }
 
 /* HTML elements */
@@ -256,7 +257,7 @@ a:focus {
   text-decoration: none;
 }
 
-.site-header-nav {}
+/* .site-header-nav {} */
 
 .site-header-nav-item {
   padding: var(--spacing-2);
@@ -293,7 +294,23 @@ a:focus {
   margin-bottom: var(--spacing-3);
   font-size: var(--fontSize-2);
   font-family: var(--font-heading);
+}
 
+.page-cta {
+  text-align: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.primary-button {
+  display: inline-block;
+  min-width: 150px;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: var(--color-primary);
+  font-family: var(--fontFamily-sans);
+  font-weight: var(--fontWeight-bold);
+  color: var(--color-text-inverse);
 }
 
 .main-heading {
