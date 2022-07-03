@@ -19,7 +19,7 @@ interface Props {
 }
 
 const CategoryPageTemplate = ({ data, pageContext: { category } }: Props) => {
-  const pageTitle = `Articles related to ${category}`
+  const pageTitle = `"${category}" articles`
 
   const posts = data.allMarkdownRemark.nodes
 
