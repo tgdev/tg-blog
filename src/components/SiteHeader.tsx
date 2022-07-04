@@ -34,7 +34,7 @@ export const SiteHeader = () => {
       <ContentBlock>
         <div className="site-header-content">
           <Link className="site-header-title" to="/">
-            {data.site.siteMetadata.title}
+            <h1>{data.site.siteMetadata.title}</h1>
           </Link>
 
           <nav className="site-header-nav">
