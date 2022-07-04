@@ -16,7 +16,7 @@ export const BlogPosts = ({ posts }: Props) => {
   }
 
   return (
-    <ol className="post-list">
+    <ol role="list" className="post-list">
       {posts.map(post => {
         const title = post.frontmatter.title || post.fields.slug
         const { category, date, tags } = post.frontmatter
