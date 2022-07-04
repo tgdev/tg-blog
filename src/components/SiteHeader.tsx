@@ -38,8 +38,12 @@ export const SiteHeader = () => {
           </Link>
 
           <nav className="site-header-nav">
-            {navItems.map(({ name, path }) => (
-              <Link to={path} className="site-header-nav-item">
+            {navItems.map(({ name, path }, index) => (
+              <Link
+                key={`site-nav-item-${index}`}
+                to={path}
+                className="site-header-nav-item"
+              >
                 {name}
               </Link>
             ))}
