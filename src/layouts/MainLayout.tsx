@@ -10,7 +10,9 @@ interface Props {
 const MainLayout = ({ children }: Props) => (
   <div className="site-wrapper">
     <SiteHeader />
-    <main className="site-content">{children}</main>
+    <main id="main" className="site-content">
+      {children}
+    </main>
     <footer className="site-footer">
       <ContentBlock>
         <small>

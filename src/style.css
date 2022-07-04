@@ -74,6 +74,7 @@
   --color-heading-black: black;
   --color-accent: #d1dce5;
   --color-text-inverse: var(--color-white);
+  --text-shadow: 0px 1px 2px var(--color-haunted-forest);
 }
 
 /* HTML elements */
@@ -260,7 +261,23 @@ a:focus {
 }
 
 .site-header {
+  position: relative;
   padding: var(--spacing-4) 0;
+}
+
+.skip-to-content-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 8px;
+  background: var(--color-bateau);
+  color: var(--color-white) !important;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+.skip-to-content-link:focus {
+  transform: translateY(0%);
 }
 
 .site-header a {
@@ -320,12 +337,17 @@ a:focus {
 .page-header h2 {
   font-size: var(--fontSize-6);
   color: var(--color-text-inverse);
+  text-shadow: var(--text-shadow);
 }
 
 .page-header p {
   margin-bottom: var(--spacing-3);
   font-size: var(--fontSize-2);
-  font-family: var(--font-heading);
+}
+
+.page-header-meta {
+  max-width: var(--maxWidth-2xl);
+  margin: 0 auto;
 }
 
 .page-cta {

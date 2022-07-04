@@ -31,6 +31,9 @@ export const SiteHeader = () => {
   `)
   return (
     <header className="site-header">
+      <a className="skip-to-content-link" href="#main">
+        Skip to content
+      </a>
       <ContentBlock>
         <div className="site-header-content">
           <Link className="site-header-title" to="/">
