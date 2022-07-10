@@ -1,14 +1,16 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from "../components/Bio"
 import Layout from "../layouts/MainLayout"
 import { ContentBlock } from "../layouts/ContentBlock"
-import Seo from "../components/Seo"
-import { PageHeader } from "../components/PageHeader"
-import { TagsList } from "../components/TagsList"
+
+import Seo from "../components/Seo/Seo"
+import Bio from "../components/Bio/Bio"
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import { PostMeta } from "../components/PostMeta/PostMeta"
+import { TagsList } from "../components/TagsList/TagsList"
+
 import { PostNavItem, Tags } from "../types"
-import { PostMeta } from "../components/PostMeta"
 
 type Data = {
   markdownRemark: {

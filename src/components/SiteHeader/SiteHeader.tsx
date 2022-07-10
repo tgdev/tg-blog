@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 
-import { ContentBlock } from "../layouts/ContentBlock"
+import { ContentBlock } from "../../layouts/ContentBlock"
 
 type NavItem = { name: string; path: string }
 

@@ -1,8 +1,9 @@
 import React from "react"
 
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
-import { PageHeader } from "../components/PageHeader"
+
+import Seo from "../components/Seo/Seo"
+import { PageHeader } from "../components/PageHeader/PageHeader"
 
 const NotFoundPage: React.FC<{}> = () => (
   <Layout>

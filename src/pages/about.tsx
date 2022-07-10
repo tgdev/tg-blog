@@ -1,9 +1,10 @@
 import React from "react"
 
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
 import { ContentBlock } from "../layouts/ContentBlock"
-import { PageHeader } from "../components/PageHeader"
+
+import Seo from "../components/Seo/Seo"
+import { PageHeader } from "../components/PageHeader/PageHeader"
 
 const AboutPage: React.FC<{}> = () => {
   const pageTitle = "About"

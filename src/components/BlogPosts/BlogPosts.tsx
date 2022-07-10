@@ -1,10 +1,10 @@
 import { Link } from "gatsby"
 import React from "react"
 
-import { TagsList } from "./TagsList"
-import { PostMeta } from "./PostMeta"
+import { TagsList } from "../TagsList/TagsList"
+import { PostMeta } from "../PostMeta/PostMeta"
 
-import { BlogPost } from "../types"
+import { BlogPost } from "../../types"
 
 interface Props {
   posts: BlogPost[]

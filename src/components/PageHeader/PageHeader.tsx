@@ -1,5 +1,5 @@
 import React from "react"
-import { ContentBlock } from "../layouts/ContentBlock"
+import { ContentBlock } from "../../layouts/ContentBlock"
 
 interface Props {
   title: string

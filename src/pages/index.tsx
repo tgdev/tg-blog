@@ -1,13 +1,15 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
-import Bio from "../components/Bio"
 import { ContentBlock } from "../layouts/ContentBlock"
-import { PageHeader } from "../components/PageHeader"
-import { BlogPosts } from "../components/BlogPosts"
+
+import Seo from "../components/Seo/Seo"
+import Bio from "../components/Bio/Bio"
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import { BlogPosts } from "../components/BlogPosts/BlogPosts"
+
 import { BlogPost } from "../types"
-import { useStaticQuery, graphql } from "gatsby"
 
 type Data = {
   allMarkdownRemark: {

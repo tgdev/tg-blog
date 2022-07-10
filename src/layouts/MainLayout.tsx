@@ -1,7 +1,8 @@
 import React from "react"
 
 import { ContentBlock } from "./ContentBlock"
-import { SiteHeader } from "../components/SiteHeader"
+
+import { SiteHeader } from "../components/SiteHeader/SiteHeader"
 
 interface Props {
   children: any

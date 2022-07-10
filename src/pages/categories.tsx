@@ -2,10 +2,11 @@ import React from "react"
 import kebabCase from "lodash/kebabCase"
 import { Link, graphql, PageProps } from "gatsby"
 
-import { ContentBlock } from "../layouts/ContentBlock"
-import { PageHeader } from "../components/PageHeader"
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
+import { ContentBlock } from "../layouts/ContentBlock"
+
+import Seo from "../components/Seo/Seo"
+import { PageHeader } from "../components/PageHeader/PageHeader"
 
 interface Props {
   allMarkdownRemark: {

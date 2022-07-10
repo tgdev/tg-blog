@@ -1,10 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { PageHeader } from "../components/PageHeader"
+
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
 import { ContentBlock } from "../layouts/ContentBlock"
-import { BlogPosts } from "../components/BlogPosts"
+
+import Seo from "../components/Seo/Seo"
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import { BlogPosts } from "../components/BlogPosts/BlogPosts"
+
 import { BlogPost } from "../types"
 
 interface Props {

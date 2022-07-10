@@ -1,9 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { PageHeader } from "../components/PageHeader"
+
 import Layout from "../layouts/MainLayout"
-import Seo from "../components/Seo"
 import { ContentBlock } from "../layouts/ContentBlock"
+
+import { PageHeader } from "../components/PageHeader/PageHeader"
+import Seo from "../components/Seo/Seo"
 
 interface Props {
   pageContext: {
